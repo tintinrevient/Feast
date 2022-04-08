@@ -134,8 +134,8 @@ Prediction for best driver id: 1002
 ## Benchmark
 
 <p float="left">
-    <img src="pix/feast_benchmark.png" width=450 />
-    <img src="pix/feast_redis_with_hashes.png" width=450 />
+    <img src="pix/feast_benchmark.png" width=600 />
+    <img src="pix/feast_redis_with_hashes.png" width=600 />
 </p>
 
 ## References
