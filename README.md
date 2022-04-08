@@ -26,9 +26,7 @@ feast init feature_repo
     <img src="pix/feast_concepts.png" width=400 />
 </p>
 
-The key line defining the overall architecture of the feature store is the **provider**, which defines where the raw data exists:
-* to generate feature values for training - `fs.get_historical_features()`
-* to generate feature values for serving - `fs.get_online_features()` after `feast materialize`
+The key line defining the overall architecture of the feature store is the **provider**, which defines where the raw data exists 1) to generate feature values for training - `fs.get_historical_features()`, and 2) to generate feature values for serving - `fs.get_online_features()` after `feast materialize`
 
 4. The `parquet` file `feature_repo/data/driver_stats.parquet` for `driver_id` 1001, 1002, 1003 looks like below:
 ```bash
