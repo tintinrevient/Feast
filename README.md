@@ -145,6 +145,50 @@ python protobuf.py
 
 `feast materialize` executes [feature_store.materialize()](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/feature_store.py#L1101), which will 1) load the features of the specified `feature_views` during the specified interval into the online store defined in `provider`, and 2) update `registry.db` for `materialization_intervals` in `meta`.
 
+## Spark
+
+To use `Spark` as offline store, `feature_store.yaml` is configured as below:
+
+```yaml
+project: spark_feature_repo
+registry: data/registry.db
+provider: local
+online_store:
+    path: data/online_store.db
+offline_store:
+    type: spark
+    spark_conf:
+        spark.master: "local[*]"
+        spark.ui.enabled: "false"
+        spark.eventLog.enabled: "false"
+        spark.sql.catalogImplementation: "hive"
+        spark.sql.parser.quotedRegexColumnNames: "true"
+        spark.sql.session.timeZone: "UTC"
+```
+
+`data_source` is defined as below:
+
+```python
+from feast.infra.offline_stores.contrib.spark_offline_store.spark_source import SparkSource
+
+driver_hourly_stats = SparkSource(
+    table="driver_hourly_stats",
+    event_timestamp_column="event_timestamp",
+    created_timestamp_column="created",
+)
+```
+
+With the following `pyspark` script, table `driver_hourly_stats` is created and persisted in `spark-warehouse`:
+
+```python
+df = spark.read.parquet("feature_repo/data/driver_stats.parquet")
+df.write.saveAsTable('driver_hourly_stats')
+```
+
+Execute `feast apply`, the schemas will be saved in `registry.db`.
+
+Note that `feature_store.get_historical_features()` and `feature_store.get_online_features()` don't work yet.
+
 ## Benchmark
 
 <p float="left">
