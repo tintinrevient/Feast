@@ -185,9 +185,11 @@ df = spark.read.parquet("feature_repo/data/driver_stats.parquet")
 df.write.saveAsTable('driver_hourly_stats')
 ```
 
-Execute `feast apply`, the schemas will be saved in `registry.db`.
+Finally, execute `feast apply`, the schemas will be saved in `registry.db`.
 
-Note that `feature_store.get_historical_features()` and `feature_store.get_online_features()` don't work yet, which perform the `point-in-time join` for a single `feature_view` table to the provided `entity` table on `event_timestamp`. The source code can be referenced [here](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/infra/offline_stores/contrib/spark_offline_store/spark.py).
+Note that `feature_store.get_historical_features()` and `feature_store.get_online_features()` will perform the `point-in-time join` for a single `feature_view` table to the provided `entity` table on `event_timestamp`. 
+
+The source code can be referenced [here](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/infra/offline_stores/contrib/spark_offline_store/spark.py).
 
 ## Benchmark
 
