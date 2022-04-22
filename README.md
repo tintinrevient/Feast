@@ -141,7 +141,7 @@ Reading from `registry.db` is equal to reading from an instance of `FeatureStore
 python protobuf.py 
 ```
 
-`feast apply` will execute [feature_store.apply()](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/feature_store.py#L597), which will update `registry.db` for new or deleted schemas.
+`feast apply` executes [feature_store.apply()](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/feature_store.py#L597), which will update `registry.db` for new or deleted schemas.
 
 ## Benchmark
 
