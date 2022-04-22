@@ -143,6 +143,8 @@ python protobuf.py
 
 `feast apply` executes [feature_store.apply()](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/feature_store.py#L597), which will update `registry.db` for new or deleted schemas.
 
+`feast materialize` executes [feature_store.materialize()](https://github.com/feast-dev/feast/blob/master/sdk/python/feast/feature_store.py#L1101), which will 1) load the features of the specified `feature_views` during the specified interval into the online store defined in `provider`, and 2) update `registry.db` for `materialization_intervals` in `meta`.
+
 ## Benchmark
 
 <p float="left">
