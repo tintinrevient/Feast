@@ -133,7 +133,9 @@ Prediction for best driver id: 1002
 
 ## Protobuf
 
-`feature_repo/data/registry.db` contains the schemas of features, such as `feature_views`, `entities`, `data_sources`. `registry.db`'s own schema is defined in https://github.com/feast-dev/feast/blob/master/protos/feast/core/Registry.proto. Reading from `registry.db` is equal to reading from an instance of `FeatureStore`. The sample code is as below:
+`feature_repo/data/registry.db` contains the schemas of features, such as `feature_views`, `entities`, `data_sources`. `registry.db`'s own schema is defined in https://github.com/feast-dev/feast/blob/master/protos/feast/core/Registry.proto. 
+
+Reading from `registry.db` is equal to reading from an instance of `FeatureStore`. The sample code is as below:
 
 ```bash
 python protobuf.py 
