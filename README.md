@@ -156,3 +156,6 @@ python protobuf.py
 * https://doordash.engineering/2020/11/19/building-a-gigascale-ml-feature-store-with-redis/
 * https://github.com/feast-dev/feast-gcp-driver-ranking-tutorial  
 * https://github.com/feast-dev/feast-spark-examples
+* https://github.com/feast-dev/feast/tree/master/sdk/python/feast
+* https://github.com/feast-dev/feast/tree/master/protos/feast/core
+* https://github.com/tintinrevient/protobuf
